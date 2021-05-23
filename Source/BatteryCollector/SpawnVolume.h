@@ -16,6 +16,18 @@ public:
 	// Sets default values for this actor's properties
 	ASpawnVolume();
 
+	// Called every frame
+	virtual void Tick(float DeltaTime) override;
+
+	// return subobject
+	FORCEINLINE class UBoxComponent *GetWhereToSpawn() const { return WhereToSpawn; }
+
+	UFUNCTION(BlueprintPure, Category = "Spawning")
+	FVector GetRandomPointInVolume();
+
+	UFUNCTION(BlueprintCallable, Category = "Spawning")
+	void SetSpawningActive(bool bShouldSpawn);
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -31,15 +43,6 @@ protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Spawning")
 	float SpawnDelayRangeHigh;
 
-public:
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
-
-// return subobject
-	FORCEINLINE class UBoxComponent *GetWhereToSpawn() const { return WhereToSpawn; }
-
-	UFUNCTION(BlueprintPure, Category = "Spawning")
-	FVector GetRandomPointInVolume();
 
 private:
 // box component to specify where pickups should be spawned
