@@ -25,6 +25,7 @@ ABatteryCollectorGameMode::ABatteryCollectorGameMode()
 
 void ABatteryCollectorGameMode::BeginPlay(){
 	Super::BeginPlay();
+	SetCurrentState(EBatteryPlayState::EPlaying);
 	// set speed
 	ABatteryCollectorCharacter *MyCharacter = Cast<ABatteryCollectorCharacter>(UGameplayStatics::GetPlayerPawn(this, 0));
 	if (MyCharacter) {
@@ -45,8 +46,12 @@ void ABatteryCollectorGameMode::Tick(float DeltaTime) {
 
 	ABatteryCollectorCharacter *MyCharacter = Cast<ABatteryCollectorCharacter>(UGameplayStatics::GetPlayerPawn(this, 0));
 	if(MyCharacter){
-		if (MyCharacter->GetCurrentPower() > 0){
+		if(MyCharacter->GetCurrentPower() > PowerToWin) {
+			SetCurrentState(EBatteryPlayState::EWon);
+		}else if (MyCharacter->GetCurrentPower() > 0){
 			MyCharacter->UpdatePower(-DeltaTime * DecayRate * (MyCharacter->GetInitialPower()));
+		} else {
+			SetCurrentState(EBatteryPlayState::EGameOver);
 		}
 	}
 }
@@ -54,4 +59,12 @@ void ABatteryCollectorGameMode::Tick(float DeltaTime) {
 float ABatteryCollectorGameMode::GetPowerToWin() const
 {
 	return PowerToWin;
+}
+
+EBatteryPlayState ABatteryCollectorGameMode::GetCurrentState() const {
+	return CurrentState;
+}
+
+void ABatteryCollectorGameMode::SetCurrentState(EBatteryPlayState NewState) {
+	CurrentState = NewState;
 }

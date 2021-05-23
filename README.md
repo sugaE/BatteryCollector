@@ -5,7 +5,6 @@ Some fixes due to engine upgrade;
 
 
 
-
 ### Env & Editor & Engine Version:
 MacOS;
 VSCode;
@@ -33,14 +32,33 @@ But generally, if the intelliSense gives warnings on swiching mode due to defaul
 
 
 ## Code and Blueprint Problems:
-#### P17:
-
-###### P:
+### P17:
+#### P:
 Cast To BatteryCollectorCharacter was pruned because its Exec pin is not connected, the connected value is not available and will instead be read as default
 This blueprint (self) is not a BatteryCollectorCharacter, therefore ' Target ' must have a connection.
-###### F:
+#### F:
 Right Click on "Cast To BatteryCollectorCharacter" Node and choose "Cast -> Convert to pure cast" so that the Exec pin will be gone and therefore Get Current Power will always get a Target.
 
 Same for Cast to BatteryCollectorGameMode and Get Power To Win.
 
 ![Screenshot 2021-05-24 at 02 46 03](https://user-images.githubusercontent.com/10446823/119273607-4665c100-bc3e-11eb-8b79-f3c3d84da9dc.png)
+
+
+### P18:
+#### P:
+2021-05-24 05:38:04.607 UnrealHeaderTool[1981:25796] [UE4] LogCompile: /Users/Windy/code/project/unreal/BatteryCollector/Source/BatteryCollector/BatteryCollectorGameMode.h(12): Error: Invalid BlueprintType enum base - currently only uint8 supported
+2021-05-24 05:38:04.609 UnrealHeaderTool[1981:25796] [UE4] Error: Invalid BlueprintType enum base - currently only uint8 supported
+#### F:
+`enum class EBatteryPlayState : uint8 { ... }`
+
+
+
+## Other Possible Problems:
+#### P: UE4 Build Precompiled Header Fatal Error
+```bash
+fatal error: file '/usr/include/x86_64-linux-gnu/asm/unistd.h' has been modified since the precompiled header '/home/mynewuser/Downloads/UnrealEngine/Engine/Intermediate/Build/Linux/B4D820EA/CrashReportClient/Development/Core/CorePrivatePCH.h.gch' was built note: please rebuild precompiled header '/home/mynewuser/Downloads/UnrealEngine/Engine/Intermediate/Build/Linux/B4D820EA/CrashReportClient/Development/Core/CorePrivatePCH.h.gch'
+
+make: *** [CrashReportClient] Error 5 16:40:46: The process "/usr/bin/make" exited with code 2. Error while building/deploying project UE4 (kit: Unreal Engine 4_Kit) When executing step "Make"
+```
+#### F: Run `BatteryCollector xxx xxx Clean` AND `BatteryCollectorEditor xxx xxx Clean` from vscode
+ref: https://answers.unrealengine.com/questions/412349/linux-ue4-build-precompiled-header-fatal-error.html
