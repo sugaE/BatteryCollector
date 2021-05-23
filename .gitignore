@@ -40,6 +40,8 @@
 *.sdf
 *.VC.db
 *.VC.opendb
+*.code-workspace
+*.uproject
 
 # Precompiled Assets
 SourceArt/**/*.png
@@ -72,3 +74,9 @@ Plugins/*/Intermediate/*
 
 # Cache files for the editor to use
 DerivedDataCache/*
+
+#.ignore
+.vscode/*
+!.vscode/c_cpp_properties.json
+
+#UE4

@@ -1,0 +1,29 @@
+{
+    "configurations": [
+        {
+            "name": "BatteryCollectorEditor Editor Mac Development (BatteryCollector)",
+            "intelliSenseMode": "clang-x64",
+            "macFrameworkPath": [
+                "/System/Library/Frameworks",
+                "/Library/Frameworks"
+            ],
+            "compileCommands": "/Users/Windy/code/project/unreal/BatteryCollector/.vscode/compileCommands_BatteryCollector.json",
+            "cStandard": "gnu17",
+            "cppStandard": "gnu++14",
+            "compilerPath": "/usr/bin/clang++"
+        },
+        {
+            "name": "Mac",
+            "intelliSenseMode": "clang-x64",
+            "macFrameworkPath": [
+                "/System/Library/Frameworks",
+                "/Library/Frameworks"
+            ],
+            "compileCommands": "/Users/Windy/code/project/unreal/BatteryCollector/.vscode/compileCommands_Default.json",
+            "cStandard": "gnu17",
+            "cppStandard": "gnu++14",
+            "compilerPath": "/usr/bin/clang++"
+        }
+    ],
+    "version": 4
+}
