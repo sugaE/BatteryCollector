@@ -8,7 +8,7 @@
 
 // enum to store current state
 UENUM(BlueprintType)
-enum class EBatteryPlayState : uint8 // P18 FIX
+enum class EBatteryPlayState : uint8 // FIX: P18
 {
 	EPlaying,
 	EGameOver,

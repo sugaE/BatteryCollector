@@ -6,7 +6,7 @@
 #include "Kismet/GameplayStatics.h"
 #include "Blueprint/UserWidget.h"
 #include "SpawnVolume.h"
-#include "GameFramework/PawnMovementComponent.h" // P20 FIX
+#include "GameFramework/PawnMovementComponent.h" // FIX: P20
 
 ABatteryCollectorGameMode::ABatteryCollectorGameMode()
 {

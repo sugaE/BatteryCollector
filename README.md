@@ -32,6 +32,7 @@ But generally, if the intelliSense gives warnings on swiching mode due to defaul
 
 
 ## Code and Blueprint Problems:
+(Some fixes are marked in code in form of "FIX: Pxx")
 ### P17:
 #### P:
 Cast To BatteryCollectorCharacter was pruned because its Exec pin is not connected, the connected value is not available and will instead be read as default
@@ -68,7 +69,6 @@ class UPawnMovementComponent;
 add dependency `#include "GameFramework/PawnMovementComponent.h"`
 
 
-
 ## Other Possible Problems:
 #### P: UE4 Build Precompiled Header Fatal Error
 ```bash
@@ -78,3 +78,7 @@ make: *** [CrashReportClient] Error 5 16:40:46: The process "/usr/bin/make" exit
 ```
 #### F: Run `BatteryCollector xxx xxx Clean` AND `BatteryCollectorEditor xxx xxx Clean` from vscode
 ref: https://answers.unrealengine.com/questions/412349/linux-ue4-build-precompiled-header-fatal-error.html
+
+#### P: Invalid option value 'EPlaying' in  Select
+Really strange error. Successfully run seconds ago then poped up this error.
+#### F: Relaunching the Unreal Editor fixed the problem.
