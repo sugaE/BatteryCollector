@@ -13,11 +13,12 @@ VSCode;
 
 
 ## VSCode Problems:
-### To work with vscode
+### [To work with vscode](http://jollymonsterstudio.com/2018/11/02/unreal-c-with-visual-studio-code/)
 1. Preference > Source Code > Source Code Editor > Visual Studio Code.
 2. Restart the Editor.
 3. File > Generate Visual Studio Code Project.
 It will automatically generate a large project with dependency and engine file.
+
 
 ### intelliSense
 If your intelliSense isn't working well, it is not your fault.
