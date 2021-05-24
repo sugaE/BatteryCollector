@@ -46,10 +46,26 @@ Same for Cast to BatteryCollectorGameMode and Get Power To Win.
 
 ### P18:
 #### P:
+```bash
 2021-05-24 05:38:04.607 UnrealHeaderTool[1981:25796] [UE4] LogCompile: /Users/Windy/code/project/unreal/BatteryCollector/Source/BatteryCollector/BatteryCollectorGameMode.h(12): Error: Invalid BlueprintType enum base - currently only uint8 supported
 2021-05-24 05:38:04.609 UnrealHeaderTool[1981:25796] [UE4] Error: Invalid BlueprintType enum base - currently only uint8 supported
+```
 #### F:
 `enum class EBatteryPlayState : uint8 { ... }`
+
+### P20:
+#### P:
+```bash
+/Users/Windy/code/project/unreal/BatteryCollector/Source/BatteryCollector/BatteryCollectorGameMode.cpp:131:39: error: member access into incomplete type 'UPawnMovementComponent'
+                        MyCharacter->GetMovementComponent()->MovementState.bCanJump = false;
+                                                           ^
+/Users/Shared/Epic Games/UE_4.26/Engine/Intermediate/Build/Mac/x86_64/UE4/Inc/Engine/Pawn.generated.h:16:7: note: forward declaration of 'UPawnMovementComponent'
+class UPawnMovementComponent;
+      ^
+1 error generated.
+```
+#### F:
+add dependency `#include "GameFramework/PawnMovementComponent.h"`
 
 
 
