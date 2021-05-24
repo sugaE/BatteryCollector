@@ -35,8 +35,10 @@ But generally, if the intelliSense gives warnings on swiching mode due to defaul
 (Some fixes are marked in code in form of "FIX: Pxx")
 ### P17:
 #### P:
+```bash
 Cast To BatteryCollectorCharacter was pruned because its Exec pin is not connected, the connected value is not available and will instead be read as default
 This blueprint (self) is not a BatteryCollectorCharacter, therefore ' Target ' must have a connection.
+```
 #### F:
 Right Click on "Cast To BatteryCollectorCharacter" Node and choose "Cast -> Convert to pure cast" so that the Exec pin will be gone and therefore Get Current Power will always get a Target.
 

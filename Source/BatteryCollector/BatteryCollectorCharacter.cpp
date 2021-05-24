@@ -50,7 +50,7 @@ ABatteryCollectorCharacter::ABatteryCollectorCharacter()
 	// are set in the derived blueprint asset named MyCharacter (to avoid direct content references in C++)
 
 	CollectionSphere = CreateDefaultSubobject<USphereComponent>(TEXT("CollectionSphere"));
-	CollectionSphere->SetupAttachment(RootComponent);
+	CollectionSphere->SetupAttachment(RootComponent); // FIX: Pxx
 	CollectionSphere->SetSphereRadius(200.0f);
 
 	//
